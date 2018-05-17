@@ -1,0 +1,48 @@
+{
+  "name": "should-i-cli",
+  "description": "Decision-making made easy. Ask a question to get back a yes or no answer.",
+  "version": "1.0.0",
+  "author": "Cedric Amaya @cedricium",
+  "bin": {
+    "should-i": "./bin/run"
+  },
+  "bugs": "https://github.com/cedricium/should-i-cli/issues",
+  "dependencies": {
+    "@oclif/command": "^1.4.30",
+    "@oclif/config": "^1.6.18",
+    "@oclif/plugin-help": "^1.2.11",
+    "axios": "^0.18.0",
+    "internet-available": "^1.0.0",
+    "ora": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/cedricium/should-i-cli",
+  "keywords": [
+    "oclif",
+    "cli",
+    "yes-no",
+    "decision",
+    "should-i"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "should-i"
+  },
+  "repository": "cedricium/should-i-cli",
+  "scripts": {
+    "lint": "eslint .",
+    "posttest": "npm run lint",
+    "test": "echo NO TESTS"
+  }
+}
