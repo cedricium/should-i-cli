@@ -4,7 +4,7 @@ const ora = require('ora');
 const internetAvailable = require('internet-available');
 
 const {Command, flags} = require('@oclif/command');
-const {api, yesno} = require('../src/utils');
+const {api, yesno, noSayings, yesSayings} = require('../src/utils');
 
 class ShouldICliCommand extends Command {
   async run() {
@@ -37,9 +37,17 @@ class ShouldICliCommand extends Command {
     }
 
     if (answer === 'yes') {
-      spinner.succeed(answer);
+      spinner.succeed(this.getRandomSaying(answer));
     } else {
-      spinner.fail(answer);
+      spinner.fail(this.getRandomSaying(answer));
+    }
+  };
+
+  getRandomSaying(answer) {
+    if (answer === 'yes') {
+      return yesSayings[Math.floor(Math.random() * yesSayings.length)];
+    } else {
+      return noSayings[Math.floor(Math.random() * noSayings.length)];
     }
   };
 };
