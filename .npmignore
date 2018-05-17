@@ -1,0 +1,5 @@
+# Dot directories + files
+.editorconfig
+.eslintrc
+.gitattributes
+.gitignore
