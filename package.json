@@ -1,7 +1,7 @@
 {
   "name": "should-i-cli",
   "description": "Decision-making made easy. Ask a question to get back a yes or no answer.",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Cedric Amaya @cedricium",
   "bin": {
     "should-i": "./bin/run"
