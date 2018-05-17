@@ -33,7 +33,7 @@ $ should-i -q "go for a run tonight?"
 ```
 
 ```sh
-should-i -q "eat whatever I feel like?"
+$ should-i -q "eat whatever I feel like?"
 ✔ yes
 ```
 
