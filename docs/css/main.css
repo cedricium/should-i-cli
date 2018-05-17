@@ -1,0 +1,32 @@
+p.install-text code {
+  border-radius: 5px;
+  padding: 0.75rem;
+}
+
+p.install-text code::before {
+  content: '$ ';
+}
+
+p.install-text code:hover {
+  cursor: text;
+}
+
+p.install-text code:hover span {
+  background: pink;
+}
+
+.hero .hero-foot {
+  margin-bottom: 1rem;
+}
+
+div.column.has-content-vcentered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.notification.copy-notification {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
