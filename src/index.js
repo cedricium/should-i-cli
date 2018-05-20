@@ -31,9 +31,9 @@ class ShouldICliCommand extends Command {
         timeout: 2000,
         retries: 3,
       });
-      answer = (await api()).answer;
+      answer = (await api(fullQuestion)).answer;
     } catch (err) { // user is offline, does not have internet connection
-      answer = (await yesno());
+      answer = (await yesno(fullQuestion));
     }
 
     if (answer === 'yes') {
