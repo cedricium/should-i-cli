@@ -1,3 +1,8 @@
+div.notification.notification-producthunt {
+  border-radius: 0 !important;
+  background: #da552f;
+}
+
 p.install-text code {
   border-radius: 5px;
   padding: 0.75rem;
@@ -17,6 +22,10 @@ p.install-text code:hover span {
 
 .hero .hero-foot {
   margin-bottom: 1rem;
+}
+
+#madeWithBulma {
+  vertical-align: bottom;
 }
 
 div.column.has-content-vcentered {
