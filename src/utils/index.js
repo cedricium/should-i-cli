@@ -22,13 +22,13 @@ exports.yesno = (fullQuestion) => {
 };
 
 exports.absolutelyNo = (text) => {
-  for (let i=0; i<this.forbiddenWords.length; i++) {
+  for (let i=0; i < this.forbiddenWords.length; i++) {
     if ( text.includes(this.forbiddenWords[i])) {
       return true;
     }
   }
   return false;
-}
+};
 
 exports.noSayings = [
   'go fish',
