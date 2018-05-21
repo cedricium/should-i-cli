@@ -37,5 +37,23 @@ $ should-i -q "eat whatever I feel like?"
 ✔ yes
 ```
 
+## Contributing
+
+Contributions are welcome from anyone and everyone. To contribute:
+
+1. **Fork** the repo on GitHub
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. Submit a **Pull request** so that we can review your changes
+
+> Note: Be sure to merge the latest from "upstream" before making a pull request!
+
+### Contributors:
+
+Special thanks to those who have helped `should-i-cli`:
+
+- Ahmed AlQahtani ([@alqahtani](https://github.com/alqahtani))
+
 ## License
 [MIT](LICENSE.md)
