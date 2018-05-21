@@ -9,6 +9,8 @@ const {api, yesno, noSayings, yesSayings} = require('../src/utils');
 class ShouldICliCommand extends Command {
   async run() {
     const {flags} = this.parse(ShouldICliCommand);
+    
+    const {args} = this.parse(ShouldICliCommand);
 
     // if no flags, display should-i usage message
     if (Object.keys(flags).length === 0) {
@@ -55,6 +57,14 @@ class ShouldICliCommand extends Command {
 ShouldICliCommand.description = `
 Decision-making made easy. Ask a question to get back a yes or no answer.
 `;
+
+ShouldICliCommand.args = [
+  {
+    name: 'question',                   // name of arg to show in help and reference with args[name]
+    required: true,                     // make the arg required with `required: true`
+    description: 'question to answer',  // help description
+  }
+];
 
 ShouldICliCommand.flags = {
   // add --version flag to show CLI version
