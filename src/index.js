@@ -2,12 +2,20 @@
 
 const ora = require('ora');
 const internetAvailable = require('internet-available');
+const updateNotifier = require('update-notifier');
+const pkg = require('../package.json');
 
 const {Command, flags} = require('@oclif/command');
 const {api, yesno, noSayings, yesSayings} = require('../src/utils');
 
 class ShouldICliCommand extends Command {
   async run() {
+    // Check for `should-i-cli` update every 3 days
+    updateNotifier({
+      pkg: pkg,
+      updateCheckInterval: 1000 * 60 * 60 * 24 * 3,
+    }).notify();
+
     const {flags} = this.parse(ShouldICliCommand);
 
     // if no flags, display should-i usage message
