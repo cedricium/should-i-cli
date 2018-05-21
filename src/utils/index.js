@@ -1,33 +1,42 @@
 const axios = require('axios');
 
+// List of words / phrases that should be given "no" answers every time.
+// Implemented by @alqahtani, pull request #2
+const absolutelyNo = (text) => {
+  for (let i = 0; i < forbiddenWords.length; i++) {
+    if ( text.includes(forbiddenWords[i])) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const forbiddenWords = [
+  'kill myself',
+  'commit suicide',
+  'take my own life',
+  'rob a',
+];
+// End of forbidden words feature
+
 exports.api = async (fullQuestion) => {
   if (this.absolutelyNo(fullQuestion)) {
-    return 'no'
+    return 'no';
   }
   const requestConfig = {
     headers: {'Content-Type': 'application/json'},
     baseURL: 'https://yesno.wtf/api/',
     method: 'get',
   };
-
   const results = await axios(requestConfig);
   return results.data;
 };
 
 exports.yesno = (fullQuestion) => {
-  if (this.absolutelyNo(fullQuestion)) {
-    return 'no'
+  if (absolutelyNo(fullQuestion)) {
+    return 'no';
   }
   return Math.floor(Math.random() * 2) === 0 ? 'yes' : 'no';
-};
-
-exports.absolutelyNo = (text) => {
-  for (let i=0; i < this.forbiddenWords.length; i++) {
-    if ( text.includes(this.forbiddenWords[i])) {
-      return true;
-    }
-  }
-  return false;
 };
 
 exports.noSayings = [
@@ -56,11 +65,4 @@ exports.yesSayings = [
   'totally',
   'yeah',
   'yes',
-];
-
-exports.forbiddenWords = [
-  'kill myself',
-  'commit suicide',
-  'take my own life',
-  'rob a'
 ];
