@@ -1,6 +1,9 @@
 const axios = require('axios');
 
-exports.api = async () => {
+exports.api = async (fullQuestion) => {
+  if (this.absolutelyNo(fullQuestion)) {
+    return 'no'
+  }
   const requestConfig = {
     headers: {'Content-Type': 'application/json'},
     baseURL: 'https://yesno.wtf/api/',
@@ -11,8 +14,20 @@ exports.api = async () => {
   return results.data;
 };
 
-exports.yesno = () => {
+exports.yesno = (fullQuestion) => {
+  if (this.absolutelyNo(fullQuestion)) {
+    return 'no'
+  }
   return Math.floor(Math.random() * 2) === 0 ? 'yes' : 'no';
+};
+
+exports.absolutelyNo = (text) => {
+  for (let i=0; i < this.forbiddenWords.length; i++) {
+    if ( text.includes(this.forbiddenWords[i])) {
+      return true;
+    }
+  }
+  return false;
 };
 
 exports.noSayings = [
@@ -41,4 +56,11 @@ exports.yesSayings = [
   'totally',
   'yeah',
   'yes',
+];
+
+exports.forbiddenWords = [
+  'kill myself',
+  'commit suicide',
+  'take my own life',
+  'rob a'
 ];
