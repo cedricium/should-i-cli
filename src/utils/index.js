@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 // List of words / phrases that should be given "no" answers every time.
 // Implemented by @alqahtani, pull request #2
 const absolutelyNo = (text) => {
@@ -19,20 +17,7 @@ const forbiddenWords = [
 ];
 // End of forbidden words feature
 
-exports.api = async (fullQuestion) => {
-  if (this.absolutelyNo(fullQuestion)) {
-    return 'no';
-  }
-  const requestConfig = {
-    headers: {'Content-Type': 'application/json'},
-    baseURL: 'https://yesno.wtf/api/',
-    method: 'get',
-  };
-  const results = await axios(requestConfig);
-  return results.data;
-};
-
-exports.yesno = (fullQuestion) => {
+exports.generateYesOrNo = (fullQuestion) => {
   if (absolutelyNo(fullQuestion)) {
     return 'no';
   }

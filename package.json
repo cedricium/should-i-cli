@@ -11,8 +11,6 @@
     "@oclif/command": "^1.4.30",
     "@oclif/config": "^1.6.18",
     "@oclif/plugin-help": "^1.2.11",
-    "axios": "^0.18.0",
-    "internet-available": "^1.0.0",
     "ora": "^2.1.0"
   },
   "devDependencies": {
