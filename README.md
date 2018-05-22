@@ -12,12 +12,14 @@ Decision-making made easy. Ask a question to get back a yes or no answer.
 
 ```sh
 USAGE
-  $ should-i
+  $ should-i QUESTION
+
+ARGUMENTS
+  QUESTION  the question you want answered
 
 OPTIONS
-  -h, --help               show CLI help
-  -q, --question=question  question to ask
-  -v, --version            show CLI version
+  -h, --help     show CLI help
+  -v, --version  show CLI version
 
 DESCRIPTION
   Decision-making made easy. Ask a question to get back a yes or no answer.
@@ -28,13 +30,13 @@ DESCRIPTION
 `should-i` has your best interest in mind (most of the time).
 
 ```sh
-$ should-i -q "go for a run tonight?"
-✖ no
+$ should-i "go for a run tonight?"
+✖ no way, Jose
 ```
 
 ```sh
-$ should-i -q "eat whatever I feel like?"
-✔ yes
+$ should-i "eat whatever I feel like?"
+✔ totally
 ```
 
 ## Contributing
