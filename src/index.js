@@ -9,18 +9,12 @@ const {api, yesno, noSayings, yesSayings} = require('../src/utils');
 class ShouldICliCommand extends Command {
   async run() {
     const {flags} = this.parse(ShouldICliCommand);
-    
     const {args} = this.parse(ShouldICliCommand);
 
-    // if no flags, display should-i usage message
-    if (Object.keys(flags).length === 0) {
-      await ShouldICliCommand.run(['--help'], flags.help);
-    }
-
-    // -q | --question - return yes or no phrase
+    // QUESTION positional argument
     //  - if connected to internet, make a request against https://yesno.wtf/api
     //  - if no connection, make a request against local yes/no generator
-    let question = flags.question;
+    let question = args.question;
     let answer;
 
     question = (question.endsWith('?')) ? question : question.concat('?');
@@ -60,10 +54,10 @@ Decision-making made easy. Ask a question to get back a yes or no answer.
 
 ShouldICliCommand.args = [
   {
-    name: 'question',                   // name of arg to show in help and reference with args[name]
-    required: true,                     // make the arg required with `required: true`
-    description: 'question to answer',  // help description
-  }
+    name: 'question',                               // name of arg to show in help and reference with args[name]
+    required: true,                                 // make the arg required with `required: true`
+    description: 'the question you want answered',  // help description
+  },
 ];
 
 ShouldICliCommand.flags = {
@@ -71,7 +65,6 @@ ShouldICliCommand.flags = {
   version: flags.version({char: 'v'}),
   // add --help flag to show CLI version
   help: flags.help({char: 'h'}),
-  question: flags.string({char: 'q', description: 'question to ask'}),
 };
 
 module.exports = ShouldICliCommand;
