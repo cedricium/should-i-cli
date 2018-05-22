@@ -1,6 +1,9 @@
 /* eslint-disable require-jsdoc */
 
 const ora = require('ora');
+const updateNotifier = require('update-notifier');
+const pkg = require('../package.json');
+
 const {Command, flags} = require('@oclif/command');
 const {generateYesOrNo, noSayings, yesSayings} = require('../src/utils');
 
@@ -25,6 +28,12 @@ class ShouldICliCommand extends Command {
         spinner.fail(this.getRandomSaying(answer));
       }
     }, ANSWER_DELAY);
+
+    // Check for `should-i-cli` update every 3 days
+    updateNotifier({
+      pkg: pkg,
+      updateCheckInterval: 1000 * 60 * 60 * 24 * 3,
+    }).notify();
   };
 
   getRandomSaying(answer) {
