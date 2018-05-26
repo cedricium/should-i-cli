@@ -5,7 +5,7 @@ const updateNotifier = require('update-notifier');
 const pkg = require('../package.json');
 
 const {Command, flags} = require('@oclif/command');
-const {generateYesOrNo, noSayings, yesSayings} = require('../src/utils');
+const {generateYesOrNo, noSayings, yesSayings, isAQuestion} = require('../src/utils');
 
 class ShouldICliCommand extends Command {
   async run() {
@@ -15,7 +15,10 @@ class ShouldICliCommand extends Command {
     let question = args.question;
     let answer;
 
-    question = (question.endsWith('?')) ? question : question.concat('?');
+    if (!isAQuestion(question)) {
+        return ora().warn("Well, that is not a question.");
+    }
+
     const fullQuestion = `should you ${question} 🤔`;
 
     const spinner = ora(fullQuestion).start();
