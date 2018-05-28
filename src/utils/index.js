@@ -52,7 +52,7 @@ exports.yesSayings = [
   'yes',
 ];
 
-//check if the input contain letters and ends with '?' 
+// check if the input contain letters and ends with '?'
 exports.isAQuestion = (input) => {
   return RegExp(/[A-z]/g).test(input) && input.endsWith('?');
-}
+};
