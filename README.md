@@ -56,6 +56,7 @@ Contributions are welcome from anyone and everyone. To contribute:
 Special thanks to those who have helped `should-i-cli`:
 
 - Ahmed AlQahtani ([@alqahtani](https://github.com/alqahtani))
+- Anderson Joseph ([@andersonjoseph](https://github.com/andersonjoseph))
 
 ## License
 [MIT](LICENSE.md)
