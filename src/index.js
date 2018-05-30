@@ -6,7 +6,7 @@ const pkg = require('../package.json');
 
 const {Command, flags} = require('@oclif/command');
 const {generateYesOrNo, noSayings, yesSayings,
-      isAQuestion} = require('../src/utils');
+  isAQuestion} = require('../src/utils');
 
 class ShouldICliCommand extends Command {
   async run() {
@@ -17,7 +17,7 @@ class ShouldICliCommand extends Command {
     let answer;
 
     if (!isAQuestion(question)) {
-        return ora().warn('Well, that is not a question.');
+      return ora().warn('Well, that is not a question.');
     }
 
     const fullQuestion = `should you ${question} 🤔`;
