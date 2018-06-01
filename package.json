@@ -44,6 +44,6 @@
   "scripts": {
     "lint": "eslint src/",
     "pretest": "npm run lint",
-    "test": "echo NO TESTS"
+    "test": "mocha"
   }
 }
