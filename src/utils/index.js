@@ -17,14 +17,14 @@ const forbiddenWords = [
 ];
 // End of forbidden words feature
 
-exports.generateYesOrNo = (fullQuestion) => {
+const generateYesOrNo = (fullQuestion) => {
   if (absolutelyNo(fullQuestion)) {
     return 'no';
   }
   return Math.floor(Math.random() * 2) === 0 ? 'yes' : 'no';
 };
 
-exports.noSayings = [
+const noSayings = [
   'go fish',
   'nah',
   'nay',
@@ -38,7 +38,7 @@ exports.noSayings = [
   'under no circumstances',
 ];
 
-exports.yesSayings = [
+const yesSayings = [
   '10-4',
   'affirmative',
   'aye',
@@ -53,6 +53,22 @@ exports.yesSayings = [
 ];
 
 // check if the input contain letters and ends with '?'
-exports.isAQuestion = (input) => {
+const isAQuestion = (input) => {
   return RegExp(/[A-z]/g).test(input) && input.endsWith('?');
+};
+
+const getRandomSaying = (answer) => {
+  if (answer === 'yes') {
+    return yesSayings[Math.floor(Math.random() * yesSayings.length)];
+  } else {
+    return noSayings[Math.floor(Math.random() * noSayings.length)];
+  }
+};
+
+module.exports = {
+  generateYesOrNo,
+  getRandomSaying,
+  isAQuestion,
+  yesSayings,
+  noSayings,
 };

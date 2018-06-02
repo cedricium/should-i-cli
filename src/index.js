@@ -5,8 +5,7 @@ const updateNotifier = require('update-notifier');
 const pkg = require('../package.json');
 
 const {Command, flags} = require('@oclif/command');
-const {generateYesOrNo, noSayings, yesSayings,
-  isAQuestion} = require('../src/utils');
+const {generateYesOrNo, isAQuestion, getRandomSaying} = require('../src/utils');
 
 class ShouldICliCommand extends Command {
   async run() {
@@ -27,9 +26,9 @@ class ShouldICliCommand extends Command {
     answer = generateYesOrNo(fullQuestion);
     setTimeout(() => {
       if (answer === 'yes') {
-        spinner.succeed(this.getRandomSaying(answer));
+        spinner.succeed(getRandomSaying(answer));
       } else {
-        spinner.fail(this.getRandomSaying(answer));
+        spinner.fail(getRandomSaying(answer));
       }
     }, ANSWER_DELAY);
 
@@ -40,13 +39,13 @@ class ShouldICliCommand extends Command {
     }).notify();
   };
 
-  getRandomSaying(answer) {
-    if (answer === 'yes') {
-      return yesSayings[Math.floor(Math.random() * yesSayings.length)];
-    } else {
-      return noSayings[Math.floor(Math.random() * noSayings.length)];
-    }
-  };
+  // getRandomSaying(answer) {
+  //   if (answer === 'yes') {
+  //     return yesSayings[Math.floor(Math.random() * yesSayings.length)];
+  //   } else {
+  //     return noSayings[Math.floor(Math.random() * noSayings.length)];
+  //   }
+  // };
 };
 
 ShouldICliCommand.description = `
