@@ -1,14 +1,25 @@
-
 const expect = require('chai').expect;
 
-// testing utils
-const {generateYesOrNo} = require('../src/utils/index.js');
+const {generateYesOrNo, getRandomSaying, yesSayings,
+  noSayings} = require('../src/utils/index.js');
 describe('Testing answers', () => {
   it('should return yes or no', () => {
     expect(generateYesOrNo('Should I study now?')).to.match(/(yes|no)/);
     expect(generateYesOrNo('Should I sleep early?')).to.match(/(yes|no)/);
     expect(generateYesOrNo('Should I test my code before production?'))
-          .to.match(/(yes|no)/);
+      .to.match(/(yes|no)/);
+  });
+
+  it('should derive answer from `yesSayings` list', () => {
+    expect(yesSayings).to.include(getRandomSaying('yes'));
+    expect(yesSayings).to.include(getRandomSaying('yes'));
+    expect(yesSayings).to.include(getRandomSaying('yes'));
+  });
+
+  it('should derive answer from `noSayings` list', () => {
+    expect(noSayings).to.include(getRandomSaying('no'));
+    expect(noSayings).to.include(getRandomSaying('no'));
+    expect(noSayings).to.include(getRandomSaying('no'));
   });
 });
 
@@ -28,11 +39,9 @@ describe('Testing if arg is a question', () => {
     expect(isAQuestion('Should I test my code before production?')).to.be.true;
   });
 
-  it('should return false for no-questions', () => {
-    expect(isAQuestion('Should I study now')).to.be.false;
-    expect(isAQuestion('hello boys')).to.be.false;
-    expect(isAQuestion('32254-0\';./.;')).to.be.false;
-  //                  ^^^^^^^^^^^^ number and symbols should also be classified
-  //                               as not a question
+  it('should return false for non-questions', () => {
+    expect(isAQuestion('Should I study now')).to.be.false; // test missing ?
+    expect(isAQuestion('423546423')).to.be.false; // test numbers
+    expect(isAQuestion(';[]./<.;;#%#@$')).to.be.false; // testing symbols
   });
 });
