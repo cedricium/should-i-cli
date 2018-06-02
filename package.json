@@ -42,8 +42,8 @@
   },
   "repository": "cedricium/should-i-cli",
   "scripts": {
-    "lint": "eslint src/",
-    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "posttest": "npm run lint",
     "test": "mocha"
   }
 }
