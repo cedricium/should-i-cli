@@ -11,6 +11,7 @@
     "@oclif/command": "^1.4.30",
     "@oclif/config": "^1.6.18",
     "@oclif/plugin-help": "^1.2.11",
+    "maker-link": "^1.0.0",
     "ora": "^2.1.0",
     "update-notifier": "^2.5.0"
   },

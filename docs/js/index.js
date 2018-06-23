@@ -1,5 +1,13 @@
 /* eslint-disable no-multi-spaces, max-len */
 
+const makerLink = new MakerLink({
+  author: "Cedric Amaya",
+  photoURL: "https://pbs.twimg.com/profile_images/1002035724076568576/8SSEXKp3_400x400.jpg",
+  redirectURL: "https://cedric.tech",
+  brandColor: '#007bff',
+  font: 'BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif',
+});
+
 // `copyToClipboard()` courtesy @chalarangelo (Angelos Chalaris)
 // refs: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
 const copyToClipboard = (str) => {
