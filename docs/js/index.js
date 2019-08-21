@@ -2,7 +2,7 @@
 
 const makerLink = new MakerLink({
   author: "Cedric Amaya",
-  photoURL: "https://pbs.twimg.com/profile_images/1002035724076568576/8SSEXKp3_400x400.jpg",
+  photoURL: "https://pbs.twimg.com/profile_images/1163280199200280576/XVbgYr8I_400x400.jpg",
   redirectURL: "https://cedric.tech",
   brandColor: '#007bff',
   font: 'BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif',
